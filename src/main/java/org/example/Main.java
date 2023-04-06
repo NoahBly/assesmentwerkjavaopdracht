@@ -62,6 +62,8 @@ public class Main {
 
 
             boolean continuePlaying = true;
+
+
             System.out.println("Wil je verder spelen j/n?");
             String continuePlayingchoice = input3.next();
 
@@ -112,7 +114,7 @@ public class Main {
                     boolean scoresSaved = saveScores("C:/Filemanagerexamplesoefening/score.txt", playername1,triesplayer1);
 
                     if(scoresSaved){
-                        System.out.println("Scores opgesglagen op C schijf");
+                        System.out.println("Scores opgeslagen op C schijf");
                     }
                     if(!scoresSaved) {
                         System.out.println("Scores konden niet worden opgeslagen");
@@ -126,7 +128,7 @@ public class Main {
                     boolean scoresSaved = saveScores2("C:/Filemanagerexamplesoefening/score.txt", playername2,triesplayer2);
 
                     if(scoresSaved){
-                        System.out.println("Scores opgesglagen op C schijf");
+                        System.out.println("Scores opgeslagen op C schijf");
                     }
                     if(!scoresSaved) {
                         System.out.println("Scores konden niet worden opgeslagen");
@@ -135,14 +137,22 @@ public class Main {
                     break;
                 }
             }else {
-                System.out.println("Speler heeft het niet goed geraden");
+
+                if(currentPlayer.equals(playername1)) {
+                    System.out.println(playername1 +" heeft het niet goed geraden");
+                }else {
+                    System.out.println(playername2 +" heeft het niet goed geraden");
+                }
+
                 if(currentPlayer.equals(playername1) ){
                     triesplayer1 ++;
                     currentPlayer = playername2;
+                    System.out.println("Nu is het de beurt aan " + playername2);
                 }
                 else{
                     triesplayer2 ++;
                     currentPlayer = playername1;
+                    System.out.println("Nu is het de beurt aan " + playername1);
                 }
             }
 
@@ -150,7 +160,12 @@ public class Main {
 
 
             if (almostWon) {
-                System.out.println("Speler is er bijna!");
+
+                if(currentPlayer.equals(playername2)) {
+                    System.out.println( playername1 + " was er bijna!");
+                }else {
+                    System.out.println( playername2 + " was er bijna!");
+                }
 
                 if(guessA.equals(letter1)) {
                     System.out.println(guessA + "+");
