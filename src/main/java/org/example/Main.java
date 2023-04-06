@@ -3,6 +3,9 @@ package org.example;
 import java.sql.SQLOutput;
 import java.util.*;
 
+import static org.example.Filemanager.saveScores;
+import static org.example.Filemanager.saveScores2;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
@@ -105,10 +108,30 @@ public class Main {
                 if(currentPlayer.equals(playername1)) {
                     triesplayer1++;
                 System.out.println("Speler "+ currentPlayer +  " heeft gewonnen met " + triesplayer1 + " pogingen. De code is " + letter1 + letter2 + letter3 + letter4 );
-                break;
+
+                    boolean scoresSaved = saveScores("C:/Filemanagerexamplesoefening/score.txt", playername1,triesplayer1);
+
+                    if(scoresSaved){
+                        System.out.println("Scores opgesglagen op C schijf");
+                    }
+                    if(!scoresSaved) {
+                        System.out.println("Scores konden niet worden opgeslagen");
+                    }
+
+
+                    break;
                 }else {
                     triesplayer2++;
                     System.out.println("Speler "+ currentPlayer +  " heeft gewonnen met " + triesplayer2 + " pogingen. De code is " + letter1 + letter2 + letter3 + letter4 );
+                    boolean scoresSaved = saveScores2("C:/Filemanagerexamplesoefening/score.txt", playername2,triesplayer2);
+
+                    if(scoresSaved){
+                        System.out.println("Scores opgesglagen op C schijf");
+                    }
+                    if(!scoresSaved) {
+                        System.out.println("Scores konden niet worden opgeslagen");
+                    }
+
                     break;
                 }
             }else {
@@ -122,6 +145,9 @@ public class Main {
                     currentPlayer = playername1;
                 }
             }
+
+
+
 
             if (almostWon) {
                 System.out.println("Speler is er bijna!");
@@ -164,4 +190,6 @@ public class Main {
         }
 
     }
+
+
 }
