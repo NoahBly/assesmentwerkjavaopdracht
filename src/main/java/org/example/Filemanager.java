@@ -18,7 +18,7 @@ public class Filemanager {
             printer.close();
             return true;
         } catch (IOException e) {
-            System.out.println("Geen toegang tot locatie: " + "C:\\Filemanagerexamplesoefening\\scoregame.txt");
+            System.out.println("Geen toegang tot locatie: " + "C:/Filemanagerexamplesoefening/scoregame.txt");
             return false;
         }
     }
@@ -34,7 +34,7 @@ public class Filemanager {
             printer.close();
             return true;
         } catch (IOException e) {
-            System.out.println("Geen toegang tot locatie: " + "C:\\Filemanagerexamplesoefening\\scoregame.txt");
+            System.out.println("Geen toegang tot locatie: " + "C:/Filemanagerexamplesoefening/scoregame.txt");
             return false;
         }
     }
